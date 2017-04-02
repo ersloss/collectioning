@@ -1,5 +1,5 @@
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from models import Card
 
 
@@ -16,3 +16,8 @@ def index(request):
         # If page is out of range (e.g. 9999), deliver last page of results.
         cards = paginator.page(paginator.num_pages)
     return render(request, 'cards/cards_index.html', {'cards': cards})
+
+
+def card_details(request, card_id):
+    card = get_object_or_404(Card, pk=card_id)
+    return render(request, 'cards/card_details.html', {'card': card})
