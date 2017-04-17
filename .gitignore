@@ -1,3 +1,17 @@
 venv/
 import/
 db.sqlite3
+*.pyc
+*.pyc
+cards/models.pyc
+cards/urls.pyc
+cards/views.pyc
+collectioning/settings.pyc
+collectioning/urls.pyc
+MagicTCGPriceAPI/app.yaml
+MagicTCGPriceAPI/LICENSE.txt
+MagicTCGPriceAPI/main.py
+MagicTCGPriceAPI/ndbmodels.py
+MagicTCGPriceAPI/pricetracker.py
+MagicTCGPriceAPI/README.md
+MagicTCGPriceAPI/scraper.py
