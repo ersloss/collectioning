@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% if collections %}
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>Collection Name</th>
+              <th>Total Value</th>
+            </tr>
+          </thead>
+          <tbody>
+
+                {% for collection in collections %}
+                  <tr>
+                    <!--<td><a href="{% url 'card_details' card.id %}">{{ card.name }}</a></td>-->
+                    <td>{{ collection.total_value }}</td>
+                  </tr>
+                {% endfor %}
+          </tbody>
+        </table>
+    {% else %}
+        <div>There are currently no collections</div>
+    {% endif %}
+
+    <div class="pagination">
+        <span class="step-links">
+            {% if collections.has_previous %}
+                <a href="?page={{ collections.previous_page_number }}">previous</a>
+            {% endif %}
+
+            <span class="current">
+                Page {{ collections.number }} of {{ collections.paginator.num_pages }}.
+            </span>
+
+            {% if collections.has_next %}
+                <a href="?page={{ collections.next_page_number }}">next</a>
+            {% endif %}
+        </span>
+    </div>
+{% endblock %}
