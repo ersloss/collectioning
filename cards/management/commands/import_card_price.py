@@ -27,6 +27,7 @@ class Command(BaseCommand):
                     except Exception as e:
                         print 'Error setting price to Decimal for card %s: %s' % (needs_price.name, e)
                     else:
+                        print 'Got price for %s' % needs_price
                         needs_price.save()
                 else:
                     print 'Could not get list literal from URL response.'

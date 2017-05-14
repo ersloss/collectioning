@@ -5,8 +5,14 @@ from models import Card
 
 def index(request):
     cards_list = Card.objects.all().order_by('name')
+    query = request.GET.get('query')
+
+    if query is not None:
+        cards_list = Card.objects.filter(name__icontains=query).order_by('name')
+
     paginator = Paginator(cards_list, 25)
     page = request.GET.get('page')
+
     try:
         cards = paginator.page(page)
     except PageNotAnInteger:
